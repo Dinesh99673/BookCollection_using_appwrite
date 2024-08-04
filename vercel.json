@@ -1,0 +1,20 @@
+{
+    "routes":[
+        {
+            "src":"/",
+            "dest":"/"
+        },
+        {
+            "src":"/signup",
+            "dest":"/"
+        },
+        {
+            "src":"/home",
+            "dest":"/"
+        },
+        {
+            "src":"/addbook",
+            "dest":"/"
+        }
+    ]
+}
