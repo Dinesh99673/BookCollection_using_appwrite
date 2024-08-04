@@ -13,12 +13,10 @@ function Login(){
 
     const handleLogin = (e) =>{
         e.preventDefault();
-        console.log(user);
         try {
           const userAccount = account.createEmailPasswordSession(user.email,user.password);
           userAccount.then(
             function(response) {
-              console.log(response);
               navigate("/home");
             },
             function(error){

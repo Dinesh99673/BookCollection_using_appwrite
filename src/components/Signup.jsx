@@ -15,7 +15,6 @@ function Signup(){
 
     const handleSignUp = (e) =>{
         e.preventDefault();
-        console.log(user);
         try {
             const userAccount = account.create(
                 uuid(),
@@ -25,7 +24,6 @@ function Signup(){
             );
             userAccount.then(
                 function(response) {
-                    console.log(response);
                     alert("Account created successfully");
                     navigate("/");
                 },

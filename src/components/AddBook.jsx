@@ -26,7 +26,6 @@ function AddBook(){
         getData.then(
             function(response){
                 setUserDetails(response);
-                console.log(response.name);
             },
             function(error){
                 console.log(error);
@@ -50,9 +49,6 @@ function AddBook(){
                     await fetch('https://openlibrary.org/search.json?q='+newBook.title+'&fields=title,cover_i,author_name&limit=1&offset=0')
                     .then(res => res.json())
                     .then(jsonData => {
-                        console.log(jsonData.docs[0]);
-                        console.log("Checking the prperties of jsonData "+i);
-                        console.log(jsonData.docs[0].hasOwnProperty('cover_i'));                    
                         status=jsonData.docs[0].hasOwnProperty('cover_i');
                         author_name=jsonData.docs[0].author_name[0];
                         coverLink=('https://covers.openlibrary.org/b/id/'+jsonData.docs[0].cover_i+'-M.jpg');
@@ -65,7 +61,6 @@ function AddBook(){
                 }
             }
             if(status){
-                console.log(author_name,coverLink);
 
                 const promise = database.createDocument(config.ApperiteDatabaseId,config.ApperiteCollectionId,uuid(),{
                     collection_Id:uuid(),

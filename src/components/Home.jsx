@@ -19,7 +19,6 @@ function Home() {
         getData.then(
             function(response){
                 setUserDetails(response);
-                console.log(response.$id);
                 user=response.$id;
             },
             function(error){
@@ -37,8 +36,7 @@ function Home() {
         });
         updateData.then(
             function(response){
-                console.log(response);
-                window.location.reload();
+                location.reload();
             },
             function(error){
                 console.log(error);
@@ -51,7 +49,6 @@ function Home() {
         getData.then(
             function(response){
                 const book = (response.documents).filter((book)=>book.user_Id === user);
-                console.log(book);
                 setUserBooks(book);
             },
             function(error){
@@ -69,7 +66,7 @@ function Home() {
     const deleteBooks = async (id) =>{
         try{
             await database.deleteDocument(config.ApperiteDatabaseId,config.ApperiteCollectionId,id);
-            window.location.reload();
+            location.reload();
         }
         catch(error){
             console.log(error);            
